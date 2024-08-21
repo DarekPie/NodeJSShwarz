@@ -1,0 +1,59 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/admin/add-product")
+
+block content
+    main
+        if prods > 0
+            .grid
+                each product in prods
+                    article.card-product-item
+                        header.card_header
+                            h1.product_title #{product.title}
+                        div.card_image
+                            img(src="https://th.bing.com/th/id/OIP.s6qkxOqsGKB_7JnvbKujWAHaE2?rs=1&pid=ImgDetMain", alt="A book")
+                        div.card_content 
+                            h2.product_price $19.99
+                            p.product_description Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, repudiandae!
+                        .card_actions 
+                            button.btn Add to Cart
+        else 
+            h1 No Products
+    
+
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title #{docTitle}
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/admin/add-product")
+    body 
+        header.main-header 
+            nav.main-header__nav
+                ul.main-header__item-list
+                    li.main-header__item
+                        a.active(href="/") Shop
+                    li.main-header__item
+                        a(href="/admin/add-product") Add Product
+
+        main
+            if prods > 0
+                .grid
+                    each product in prods
+                        article.card-product-item
+                            header.card_header
+                                h1.product_title #{product.title}
+                            div.card_image
+                                img(src="https://th.bing.com/th/id/OIP.s6qkxOqsGKB_7JnvbKujWAHaE2?rs=1&pid=ImgDetMain", alt="A book")
+                            div.card_content 
+                                h2.product_price $19.99
+                                p.product_description Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, repudiandae!
+                            .card_actions 
+                                button.btn Add to Cart
+            else 
+                h1 No Products
